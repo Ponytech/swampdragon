@@ -36,9 +36,10 @@ var messageHandler = function (e) {
      * Channel message
      *******************/
     if ('channel' in e.data) {
-        var channel = swampDragon.channels[e.data.channel];
-        delete(e.data['channel']);
-        swampDragon.settings.onchannelmessage(channel, e.data);
+        //var localChannels = channels.getLocalChannels(e.data.channel);
+        //delete(e.data['channel']);
+        //eventHandler.emit('channelMessage', [localChannels, e.data]);
+        eventHandler.emit('channelMessage', [e.data.channel, e.data]);
         return;
     }
 
